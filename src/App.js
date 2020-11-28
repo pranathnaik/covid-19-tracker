@@ -1,34 +1,51 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import Header from "./Components/Header";
 const App = () => {
-  const [state, setstate] = useState();
-  const active = state.data;
+  const [jsData, setData] = useState({});
+
+  const [countryval, setCountryval] = useState("");
+
+  const [Countries, setCountries] = useState([{}]);
+
   useEffect(() => {
     async function getData() {
-      const data = await axios.get(`https://disease.sh/v3/covid-19/all`);
+      const { data } = await axios.get(
+        `https://disease.sh/v3/covid-19/countries/${countryval}`
+      );
+      const countries = await axios.get(`https://restcountries.eu/rest/v2/all`);
 
-      setstate(data);
-      console.log(data);
+      setData(data);
+      setCountries(countries.data);
+
+      console.log(countries.data);
     }
 
     getData();
-  });
+  }, [countryval]);
+
+  const selectChange = (event) => {
+    setCountryval(event.target.value);
+    console.log(countryval);
+  };
 
   return (
     <>
-      <h2>active cases {active}</h2>
-      {/* <h2>cases {state.data.cases}</h2>
-      <h2>deaths {state.data.deaths}</h2>
-      <h2>recovered {state.data.recovered}</h2> */}
+      <Header />
+      {console.log(jsData)}
+      <h2>country {jsData.country}</h2>
+      <h2>active cases {jsData.active}</h2>
+      <h2>cases {jsData.cases}</h2>
+      <h2>deaths {jsData.deaths}</h2>
+      <h2>recovered {jsData.recovered}</h2>
 
-      <select>
-        <option></option>
-        <option></option>
-        <option></option>
+      <select value={countryval} onChange={selectChange}>
+        {Countries.map((value) => {
+          return <option>{value.name}</option>;
+        })}
       </select>
     </>
   );
 };
-
 export default App;
