@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import axios from "axios";
+const App = () => {
+  const [state, setstate] = useState();
+  const active = state.data;
+  useEffect(() => {
+    async function getData() {
+      const data = await axios.get(`https://disease.sh/v3/covid-19/all`);
 
-function App() {
+      setstate(data);
+      console.log(data);
+    }
+
+    getData();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>active cases {active}</h2>
+      {/* <h2>cases {state.data.cases}</h2>
+      <h2>deaths {state.data.deaths}</h2>
+      <h2>recovered {state.data.recovered}</h2> */}
+
+      <select>
+        <option></option>
+        <option></option>
+        <option></option>
+      </select>
+    </>
   );
-}
+};
 
 export default App;
