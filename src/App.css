@@ -7,7 +7,9 @@
   --NaturalYellow: #f1b24a;
   --White: #ffffff;
 }
-
+body {
+  background-color: var(--White);
+}
 .header {
   background-color: var(--darkgreen);
   display: flex;
@@ -22,7 +24,7 @@
 }
 
 .globalcontainer {
-  background-color: var(--MediumGreen);
+  background-color: var(--NaturalYellow);
   margin: 20px;
   align-self: center;
   display: flex;
@@ -33,11 +35,11 @@
 .global-items {
   display: flex;
   flex-direction: row;
-  background-color: pink;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   padding: 12px;
+  background-color: var(--darkgreen);
 }
 .global-title {
   display: flex;
@@ -50,9 +52,35 @@
 }
 
 .items {
-  background-color: var(--LightGreen);
+  background-color: var(--MediumGreen);
   width: 320px;
-  height: 220px;
   flex-wrap: wrap;
-  margin: 12px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
+
+.title-global {
+  width: 100%;
+  display: flex;
+}
+.title-global h2 {
+  margin: auto;
+}
+
+.title-global-value {
+  font-size: x-large;
+  font-weight: 500;
+  padding: 10px;
+}
+
+/* select view style */
+
+.global-title {
+  display: flex;
+  justify-content: center;
+}
+
+

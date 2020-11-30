@@ -1,5 +1,7 @@
 import React from "react";
 import "../App.css";
+
+
 const GlobalView = (props) => {
   return (
     <div className="globalcontainer">
@@ -8,20 +10,29 @@ const GlobalView = (props) => {
       </div>
       <div className="global-items">
         <div className="items">
-          <h2>active cases </h2>
-          <div>{props.active}</div>
+          <div className="title-global">
+            <h2>Active cases </h2>
+          </div>
+
+          <div className="title-global-value">{props.active}</div>
         </div>
         <div className="items">
-          <h2>cases </h2>
-          <div>{props.cases}</div>
+          <div className="title-global">
+            <h2>Cases </h2>
+          </div>
+          <div className="title-global-value">{props.cases}</div>
         </div>
         <div className="items">
-          <h2>deaths </h2>
-          <div>{props.deaths}</div>
+          <div className="title-global">
+            <h2>Deaths </h2>
+          </div>
+          <div className="title-global-value">{props.deaths}</div>
         </div>
         <div className="items">
-          <h2>recovered </h2>
-          <div>{props.recovered}</div>
+          <div className="title-global">
+            <h2>Recovered </h2>
+          </div>
+          <div className="title-global-value">{props.recovered}</div>
         </div>
       </div>
     </div>
