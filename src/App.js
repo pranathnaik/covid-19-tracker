@@ -18,7 +18,12 @@ const App = () => {
 
   return (
     <>
-      <Header />
+          <Header />
+          <Header />
+          <Header />
+          Hii pranath nayak how are you 
+
+
       <GlobalView
         active={globalData.active}
         cases={globalData.cases}
