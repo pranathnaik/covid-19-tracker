@@ -13,7 +13,6 @@ const App = () => {
 
       setGlobalData(global.data);
     }
-
     getData();
   }, []);
 
