@@ -3,6 +3,7 @@ import "../App.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
 import Select from "@material-ui/core/Select";
+import Barc from "./BarC";
 const SelectView = () => {
   const [jsData, setData] = useState({});
   const [Countries, setCountries] = useState([{}]);
@@ -66,6 +67,7 @@ const SelectView = () => {
           <div className="title-global-value">{jsData.recovered}</div>
         </div>
       </div>
+      <Barc data={jsData} />
     </div>
   );
 };
